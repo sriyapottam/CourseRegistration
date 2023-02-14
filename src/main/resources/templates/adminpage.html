@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="js/script.js"></script>
+</head>
+<body>
+<div align="center" class="container my-2">
+<h1>Users List</h1><br><br>
+
+<table border="1" class="table table-striped table-responsive-md">
+<thead>
+<tr>
+<th>User Name</th>
+<th>Course</th>
+<th>Course Duration</th>
+<th>Actions</th>
+
+</tr>
+</thead>
+<tbody >
+<!-- <form th:action="@{/students}" th:object="${student}" method="post">
+<div>
+<label>name</label>
+<input type="text" name = "name" th:field="*{Name}" placeholder = "enter your name">
+<label>course</label>
+<input type="text" name = "name" th:field="*{Course}" placeholder = "enter your course">
+<label>course duration</label>
+<input type="text" name = "name" th:field="*{Courseduration}" placeholder = "enter your courseduration">
+<button type="submit" > add </button>
+
+<
+</div>
+
+
+
+</form> -->
+
+<tr th:each="user : ${listUsers}">
+ 
+ <td th:text="${user.Name}"></td>
+<td th:text="${user.Course}"></td>
+<td th:text="${user.Courseduration}"></td>
+<!-- <td> <a>update</a>
+<a>delete</a></td> -->
+
+<!-- <td><a th:href="@{/showformforupdate/{id}(id=${user.id})}" class="btn btn-dark">Update</a>
+<a th:href="@{/showformforupdate/{id}(id=${user.id})}" class="btn btn-danger">Delete</a></td> -->
+<td>
+ <a th:href = "@{/users/edit/{id}(id=${user.id})}" class="btn btn-primary">Update</a> 
+ <a th:href = "@{/users/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a> 
+ 
+ 
+ 
+
+</td>
+
+</tr>
+</tbody>
+</table>
+<form th:action ="@{/logout}" th:object="${user}" class="form" method="post">
+  
+	<input type="submit" value="LogOut!" class="bu" id="logout">
+	</form>	
+
+</div>
+
+</body></html>

@@ -1,0 +1,152 @@
+<!-- <!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>update Details</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+     <style>
+    
+    body{
+	 background-color: antiquewhite;
+   
+}
+.form{
+	margin-left:40%;
+}
+input,select{
+    margin-top:20px;
+    border: none rgb(233, 134, 167);
+    background-color: antiquewhite;
+    border-bottom-style: groove;
+    height:30px;
+    width:250px;
+}
+input:focus,select:focus{
+    outline: none;
+}
+.bu{
+    background-color: rgb(233, 134, 167);
+}
+h4{
+text-align:center;
+}
+    </style>
+    </head>
+    
+<body>
+<div>
+<h4>Update details</h4><br>
+<form th:action="@{/users/{id}(id=${listUsers.id})}" th:object="${user}" method="get" class="form">
+<input type="text" name="Name" placeholder="Name"><br>
+<input type="text" name="Address" placeholder="Address"><br>
+<input type="number" name="Age" placeholder="Age"><br>
+<input type="text" name="Highestqualification" placeholder="HighestQualification"><br>
+<input type="text" name="Course" placeholder="Course"><br>
+<input type="number" placeholder="course duration in hours" name="Courseduration"><br>
+<select name="Paymentmode">
+<option value="1">PhonePay</option>
+<option value="2">GooglePay</option>
+<option value="3">CreditCard</option>
+
+</select><br>
+
+ <input type="submit" value="Update" class="bu">
+</form>
+
+</div>
+
+
+</body>
+
+</html> -->
+
+
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+    
+    body{
+	 background-color: antiquewhite;
+   
+}
+.form{
+	margin-left:40%;
+}
+input,select{
+    margin-top:20px;
+    border: none rgb(233, 134, 167);
+    background-color: antiquewhite;
+    border-bottom-style: groove;
+    height:30px;
+    width:250px;
+}
+input:focus,select:focus{
+    outline: none;
+}
+.bu{
+    background-color: rgb(233, 134, 167);
+}
+    </style>
+   
+  </head>
+  <body>
+    
+    
+
+<!--  <h1 style="text-align:center;">Course Registration System</h1>
+<form method="get" action="validation()" class="form">
+		<pre>
+  <input type="text" name="Name" placeholder="Name"><br>
+  <select name="type" placeholder="Login Type">
+   <option value="admin">Login Type</option>
+  <option value="admin">Admin</option>
+  <option value="user">User</option>
+  
+  
+  </select>
+  <input type="password" placeholder="Password" name="Password">
+  <input type="submit" value="submit" class="bu">
+  
+  </pre>
+
+</form>
+	<label>New User?</label>
+	<a href="">SignUp</a>--><div>
+	<h4 style="text-align:center">Update Details</h4><br>
+
+<form th:action="@{/register}" th:object="${listUsers}" method="post" class="form">
+
+<input type="hidden" th:field="*{id}"/>
+<input type="text" name="Name" placeholder="Name" th:field="*{Name}" required><br>
+<!-- <input type="text" name="Address" placeholder="Address" th:field="*{Address}" required><br>
+<input type="number" name="Age" placeholder="Age" th:field="*{Age}"required><br>
+<input type="text" name="Highestqualification" placeholder="HighestQualification" th:field="*{Highestqualification}"><br> -->
+<select name="Course" th:field="*{Course}"required>
+<option value="java">Java</option>
+<option value="javaScript">JavaScript</option>
+<option value="python">Python</option>
+
+</select><br>
+<input type="number" placeholder="course duration in hours" name="Courseduration" th:field="*{Courseduration}" required><br>
+<!-- <select name="Paymentmode" th:field="*{Paymentmode}"required>
+<option value="PhonePay">PhonePay</option>
+<option value="GooglePay">GooglePay</option>
+<option value="CreditCard">CreditCard</option>
+
+</select><br>
+<input type="password" name="Password" placeholder="password" th:field="*{Password}" required><br> -->
+ <input type="submit" value="Update" class="bu">
+</form>
+
+</div>
+  </body>
+</html>
+
